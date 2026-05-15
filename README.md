@@ -95,6 +95,12 @@ Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines
 
 ---
 
-## 📄 License
+## License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+This project is released under the terms of the [MIT License](LICENSE).
+
+© 2026 Dr. Georges Bou Ghantous. All rights reserved.
+
+---
+
+<sub><i><span style="color:#B0B0B0">👤 Author: Dr. Georges Bou Ghantous</span></i></sub>
