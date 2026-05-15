@@ -1,113 +1,164 @@
 # Module 1 — Introduction to Agentic AI for Software Development
 
-> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 1: Introduction to Agentic AI for Software Development](../labs/Lab_1_Introduction_to_Agentic_AI_for_Software_Development.md).
+> 💡 **Hands-on Lab:** This module is paired with [Lab 1: Agentic AI for Software Development](../labs/Lab_1_Introduction_to_Agentic_AI_for_Software_Development.md), where you build a working *plan → act → observe → adapt* coding agent that writes and runs unit tests for a Python module.
 
-> **Module goal.** Build a precise mental model of what agentic AI *is*, what makes it different from prior generations of AI, and where it creates measurable value in software engineering.
+> **Module goal.** Build a precise mental model of what agentic AI *is* in the context of **software development**, what makes it different from earlier AI coding tools, and where it creates measurable value across the engineering lifecycle.
 
-> **Agentic AI Engineering Focus**
->
-> This course is dedicated to the engineering of agentic AI systems—autonomous, goal-driven software agents that plan, act, and adapt in real-world software development workflows. It is not about general software development or generative image models, but about building, deploying, and operating agentic AI architectures for engineering and production use.
+> **Course focus.** This course is about **engineering agentic AI systems for software development** — autonomous, goal-driven agents that read code, edit code, run tools (tests, linters, build systems, VCS), observe results, and adapt. It is not about general LLM usage, image generation, or non-engineering chat assistants.
 
 ## Table of Contents
 
 - [1.1 What is Agentic AI?](#11-what-is-agentic-ai)
 - [1.2 Why Agentic AI for Software Engineering?](#12-why-agentic-ai-for-software-engineering)
 - [1.3 Key Concepts and Terminology](#13-key-concepts-and-terminology)
+- [1.4 From Module to Lab — Your First Coding Agent](#14-from-module-to-lab--your-first-coding-agent)
 
 ---
 
 ## 1.1 What is Agentic AI?
 
-> **Agentic AI moves software from answering questions to completing work.**
+> **Agentic AI moves software from *answering questions* to *completing engineering work*.**
 >
-> In this course, "agentic" means engineering systems that can autonomously pursue goals, use tools, and adapt to changing information—far beyond simple API calls or static prompts. Our focus is on the practical design and deployment of such agentic workflows.
+> A foundation model alone is a function: text in, text out. An **agent** wraps that function in a *loop*, gives it *tools* (file I/O, shells, test runners, VCS), gives it *memory*, and points it at a *goal* (e.g., "add unit tests for `add()` and `subtract()`"). The result is a system that can **plan, act, observe, and adapt — autonomously**.
 
-A foundation model on its own is a powerful function: text in, text out. An **agent** wraps that function in a loop, gives it tools, gives it memory, and points it at a goal. The result is a system that can plan, act, observe, and adapt — autonomously.
+### The Agent Loop
 
 ```
-	┌──────────────┐
-	│     Goal     │
-	└──────┬───────┘
-	       ▼
-   ┌──────────────────────┐
-   │  Plan  →  Act  →  Observe  │  ← loop until "done" or stopped
-   └──────────────────────┘
-	       │
-	       ▼
-	┌──────────────┐
-	│   Outcome    │
-	└──────────────┘
+        ┌───────────────────┐
+        │       GOAL        │   "Add unit tests for app.py"
+        └─────────┬─────────┘
+                  ▼
+   ┌──────────────────────────────┐
+   │  PLAN  →  ACT  →  OBSERVE    │  ← repeat until done / max retries
+   │           ▲          │       │
+   │           └── ADAPT ─┘       │
+   └──────────────┬───────────────┘
+                  ▼
+        ┌───────────────────┐
+        │      OUTCOME      │   test_app.py written, `unittest` reports OK
+        └───────────────────┘
 ```
 
----
-
-### 🧠 Autonomous reasoning systems
-
-**Definition.** A system that, given a goal, decomposes it, chooses actions, executes them, evaluates the result, and decides what to do next — without a human approving every step.
-
-**Core ideas**
-
-| Concept | What it means |
+| Phase | What the coding agent does |
 |---|---|
-| Agent loop | The *plan → act → observe* cycle (often implemented as ReAct). |
-| Policy | The strategy mapping *state → next action*; mostly encoded in prompts and tool schemas. |
-| Self-correction | Re-plan after a failed call, an invalid output, or a critic's feedback. |
+| **Plan** | Decompose the goal into ordered steps (e.g., "write `test_app.py`", "run `python -m unittest`", "verify exit code 0"). |
+| **Act** | Use a *tool* — write a file, run a shell command, call a Git API, edit code. |
+| **Observe** | Read the actual result (stdout, exit code, file diff, lint warnings). |
+| **Adapt** | If the observation indicates failure, revise the plan or fix the artifact and retry. |
 
-**Where it fits.** Anywhere the work requires **composition** (search + compute + write), **branching** (decisions on intermediate results), or **recovery** (retrying when the first approach fails).
+### Where it sits on the AI-coding spectrum
 
-**Example — Coding agent**
+| Tool generation | Trigger | Output | Autonomy |
+|---|---|---|---|
+| **Autocomplete** (e.g., classic IntelliSense) | Keystroke | Token suggestions | None — you accept/reject each char |
+| **Chat assistant** (a coding chatbot) | Question | Code snippet in a reply | Low — you copy/paste/run manually |
+| **AI pair programmer** (inline LLM) | Edit context | Multi-line completions, refactors on demand | Medium — bounded to the open buffer |
+| **Agentic AI for software dev** *(this course)* | A **goal** | Files written, tests run, PRs opened, errors fixed | **High — closes the loop on real artifacts** |
 
-> *Goal: "Refactor the authentication module for better testability."*
->
-> 1. Analyze the current code and dependencies.
-> 2. Propose a refactor plan and required tests.
-> 3. Apply code changes and generate tests.
-> 4. Run tests and report results.
-> 5. If tests fail → adapt the code and retry.
+### Anatomy of a coding agent
+
+A working agent has five engineering surfaces — every later module in this course adds depth to one of them:
+
+| Component | Role in software development | Covered in |
+|---|---|---|
+| **Goal / prompt contract** | Unambiguous task statement + success criteria. | Module 2 |
+| **Tools** | File system, shell, test runner, linter, Git, IDE/MCP. | Module 3 |
+| **Memory** | Files read, decisions made, prior errors, repo facts. | Module 4 |
+| **Guardrails** | What the agent may *not* touch; how output is validated. | Module 4 |
+| **Loop / control** | The plan→act→observe→adapt driver and stop conditions. | Module 1 (here) + Module 5 |
+
+### Concrete example — a unit-test agent (Lab 1 preview)
+
+> **Goal:** *"Add unit tests for `add()` and `subtract()` in `backend_app/app.py`."*
+
+1. **Plan** — `["write backend_app/test_app.py", "run python -m unittest", "verify all tests pass"]`
+2. **Act** — write the test file using the file-system tool.
+3. **Observe** — run the tests via `subprocess`; capture stdout + exit code.
+4. **Adapt** — on `FAILED`, regenerate assertions or fix imports; retry up to N times.
+5. **Outcome** — `test_app.py` exists and `unittest` exits `OK`.
+
+This is exactly the agent you implement in [Lab 1](../labs/Lab_1_Introduction_to_Agentic_AI_for_Software_Development.md).
 
 ---
 
 ## 1.2 Why Agentic AI for Software Engineering?
 
-Agentic AI is a leap beyond chatbots and code-completion tools. It enables:
+Software engineering is *the* domain where agentic AI pays off, because it is full of work that is **multi-step, tool-heavy, verifiable, and repetitive**:
 
-- **Autonomous code changes** — not just suggestions, but actual edits, test runs, and PRs.
-- **Multi-step workflows** — agents can chain tasks, coordinate with other agents, and adapt to feedback.
-- **Tool integration** — agents use IDEs, CLIs, APIs, and code repositories as first-class tools.
-- **Outcome focus** — success is measured by completed tasks, not just helpful answers.
+- **Verifiable outcomes** — tests pass/fail, builds compile, linters return 0 / non-0. The agent gets a hard signal at every step.
+- **Rich tool surface** — shells, language servers, test runners, package managers, CI, Git, code search.
+- **Composable tasks** — read → reason → edit → run → review → commit. Perfect for a loop.
+- **Toil to automate** — boilerplate tests, dependency bumps, doc updates, log triage, PR responses.
 
-**Example — PR automation agent**
+### What you can do with an agent that you cannot do with chat alone
 
-> *Goal: "Automate dependency updates across all microservices."*
+| Capability | Chat assistant | Agentic system |
+|---|---|---|
+| Write a unit test from a prompt | ✅ produces text | ✅ writes the file |
+| Run the test and read the result | ❌ | ✅ via shell tool |
+| Fix the test if it fails | ❌ (you iterate) | ✅ adapts and retries |
+| Open a PR with the change | ❌ | ✅ via Git/GitHub tool |
+| Remember earlier decisions across steps | ❌ | ✅ via memory |
+| Refuse to touch protected files | ❌ | ✅ via guardrails |
+
+### Example — Cross-repo dependency agent
+
+> *Goal: "Bump `requests` to `>=2.32` across all microservices and open PRs."*
 >
-> 1. Scan all repositories for outdated dependencies.
-> 2. Fork, update, and test each service.
-> 3. Open PRs with changelogs and test results.
-> 4. Notify maintainers and monitor for merge.
+> 1. Discover repos via the Git tool.
+> 2. For each repo: open, edit `requirements.txt`, run tests.
+> 3. If tests pass → branch, commit, push, open PR with auto-generated changelog.
+> 4. If tests fail → log, skip, add a `needs-human` label.
+
+The agent is doing engineering work end-to-end, with verifiable artifacts (PR URLs, test logs).
 
 ---
 
 ## 1.3 Key Concepts and Terminology
 
-| Term | Definition |
+| Term | Definition (in a software-dev context) |
 |---|---|
-| **Agent** | An autonomous system that plans, acts, observes, and adapts to achieve a goal. |
-| **Agentic loop** | The iterative cycle: plan → act → observe → adapt. |
-| **Tool use** | The agent’s ability to invoke external tools (IDEs, CLIs, APIs, etc.). |
-| **Memory** | Persistent context across steps, sessions, or tasks. |
-| **Guardrails** | Safety and compliance mechanisms (validation, logging, policy enforcement). |
-| **Multi-agent workflow** | Multiple agents collaborating or coordinating to achieve complex goals. |
-| **RAG** | Retrieval-Augmented Generation — combining search/retrieval with generation for better context. |
+| **Agent** | A loop-driven program that pursues a goal by invoking an LLM + tools and reacting to results. |
+| **Goal** | A precise, testable outcome (e.g., "all tests in `backend_app/` pass"). |
+| **Agentic loop** | The iterative cycle: **plan → act → observe → adapt**. |
+| **Plan** | An ordered list of intended steps the agent will execute. |
+| **Act** | A single tool invocation (file write, `subprocess.run`, API call). |
+| **Observe** | Reading the *real* result of an action (stdout, exit code, diff). |
+| **Adapt** | Revising the plan or the artifact based on an observation. |
+| **ReAct** | A common pattern that interleaves reasoning ("Thought:") with actions ("Action:") and observations. |
+| **Tool use** | Calling external developer tools (shell, test runner, Git, IDE, MCP server). |
+| **Memory** | Persisted context: prior steps, file summaries, decisions, repo facts. |
+| **Guardrails** | Validations and policies that constrain what the agent may do or output. |
+| **Multi-agent workflow** | Multiple specialized agents (planner, coder, reviewer) coordinating on one goal. |
+| **RAG** | Retrieval-Augmented Generation — grounding the agent in your codebase via search/embeddings. |
+
+---
+
+## 1.4 From Module to Lab — Your First Coding Agent
+
+In [Lab 1](../labs/Lab_1_Introduction_to_Agentic_AI_for_Software_Development.md) you implement every concept from §1.1 in ~80 lines of Python. Use this map as you work through it:
+
+| Module 1 concept | Lab 1 implementation |
+|---|---|
+| **Goal** | The string passed to `agentic_loop("Add a unit test for add() and subtract()...")`. |
+| **Plan** | The `plan()` function returning a list of steps. |
+| **Act** | The `act()` function that writes `test_app.py` and runs `python -m unittest`. |
+| **Observe** | Parsing `subprocess.run(...).stdout` for `OK` / `FAILED`. |
+| **Adapt** | The `adapt()` function and the `max_retries` guard. |
+| **Tool use** | File I/O + `subprocess` (a real shell tool — expanded in Module 3). |
+| **Memory** | (Stubbed in Lab 1; built out in Module 4.) |
+| **Guardrails** | `max_retries` is the simplest guardrail; richer policies arrive in Module 4. |
 
 ---
 
 ## 🎯 Module 1 — Takeaways
 
-1. **An agent is a loop, not a model.** Plan → act → observe → repeat.
-2. **Agentic AI is outcome-focused.** Completion of real tasks, not just answers.
-3. **Tool use and memory are core.** Agents must integrate with developer tools and retain context.
-4. **Guardrails and policy matter.** Safety, audit, and compliance are first-class concerns.
-5. **Multi-agent workflows and RAG** unlock advanced engineering use cases.
+1. **An agent is a loop, not a model.** Plan → Act → Observe → Adapt.
+2. **Software dev is the killer use case.** Verifiable outcomes + rich tools = ideal agent territory.
+3. **Tools, memory, and guardrails are first-class.** They separate a chat reply from a closed-loop engineering system.
+4. **Goals must be testable.** "Tests pass" is a goal; "improve quality" is not.
+5. **Start small, then add depth.** Lab 1 builds the loop; later modules add prompts, tools, memory, guardrails, multi-agent coordination, RAG, and production concerns.
 
-> ➡️ **Next:** [Module 2 — Prompt Engineering for Software Agents](Module_2_Prompt_Engineering_for_Software_Agents.md)
-
+> ➡️ **Next:**
+> - 🧪 Do [Lab 1 — Build the agentic loop](../labs/Lab_1_Introduction_to_Agentic_AI_for_Software_Development.md)
+> - 📘 Then read [Module 2 — Prompt Engineering for Software Agents](Module_2_Prompt_Engineering_for_Software_Agents.md)
