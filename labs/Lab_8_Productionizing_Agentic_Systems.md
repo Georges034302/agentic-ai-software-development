@@ -14,4 +14,3 @@ Deploy and scale a production-grade agentic system with observability and respon
 
 ---
 
-© 2026 Georges Bou Ghantous.

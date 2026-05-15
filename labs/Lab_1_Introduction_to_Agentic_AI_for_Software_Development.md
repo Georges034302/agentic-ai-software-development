@@ -14,4 +14,3 @@ Build a minimal agentic loop for software development: plan, act, observe, and a
 
 ---
 
-© 2026 Georges Bou Ghantous.

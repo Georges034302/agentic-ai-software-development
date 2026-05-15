@@ -14,4 +14,3 @@ Simulate AI-augmented software engineering workflows: patching, testing, PRs, an
 
 ---
 
-© 2026 Georges Bou Ghantous.

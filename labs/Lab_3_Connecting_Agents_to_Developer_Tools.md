@@ -14,4 +14,3 @@ Integrate an agent with developer tools using the Model Context Protocol (MCP).
 
 ---
 
-© 2026 Georges Bou Ghantous.

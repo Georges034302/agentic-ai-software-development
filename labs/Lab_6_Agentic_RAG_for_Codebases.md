@@ -14,4 +14,3 @@ Implement retrieval-augmented generation (RAG) for code and documentation.
 
 ---
 
-© 2026 Georges Bou Ghantous.

@@ -12,4 +12,3 @@
 
 ---
 
-© 2026 Georges Bou Ghantous.

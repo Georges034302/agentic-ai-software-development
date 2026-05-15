@@ -14,4 +14,3 @@ Compose supervisor/worker or peer-to-peer multi-agent systems for software proje
 
 ---
 
-© 2026 Georges Bou Ghantous.

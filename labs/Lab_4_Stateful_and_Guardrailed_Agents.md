@@ -14,4 +14,3 @@ Add memory, tool registry, and guardrails to an agent.
 
 ---
 
-© 2026 Georges Bou Ghantous.

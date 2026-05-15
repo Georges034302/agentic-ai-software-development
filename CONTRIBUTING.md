@@ -15,4 +15,3 @@ If you find a bug or have a suggestion, please open an issue on GitHub.
 
 ---
 
-© 2026 Georges Bou Ghantous.

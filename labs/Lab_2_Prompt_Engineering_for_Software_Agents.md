@@ -14,4 +14,3 @@ Design, structure, and test prompts for software agents.
 
 ---
 
-© 2026 Georges Bou Ghantous.

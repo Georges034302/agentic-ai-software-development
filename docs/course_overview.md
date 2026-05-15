@@ -11,46 +11,43 @@ A tree view of the **Agentic AI Software Development** course structure. Each mo
 ```
 Agentic AI Software Development
 │
-├── Module 1: Agentic AI Recap & Backend Selection
-│   ├── 1.1 Agentic AI Concepts Refresher
-│   ├── 1.2 Backend Overview: Claude vs. Kiro
-│   ├── 1.3 Backend Setup
+├── Module 1: Introduction to Agentic AI for Software Development
+│   ├── What is agentic AI?
+│   ├── Why it matters for software engineering
+│   └── Key concepts and terminology
 │
 ├── Module 2: Prompt Engineering for Software Agents
-│   ├── 2.1 Advanced Prompt Design
-│   ├── 2.2 Backend-Specific Prompt Patterns
-│   ├── 2.3 Prompt Testing and Evaluation
+│   ├── Crafting effective prompts for coding tasks
+│   ├── Context design and prompt templates
+│   └── Testing and iterating prompts
 │
-├── Module 3: Integrating Agents with Developer Tools
-│   ├── 3.1 IDE, CLI, and Repo Integration
-│   ├── 3.2 Model Context Protocol (MCP)
-│   ├── 3.3 Tool Registry and Invocation
+├── Module 3: Connecting Agents to Developer Tools
+│   ├── Integrating with IDEs, CLIs, and APIs
+│   ├── Model Context Protocol (MCP) basics
+│   └── Tool registry and invocation patterns
 │
-├── Module 4: Stateful, Guardrailed, and Auditable Agents
-│   ├── 4.1 Memory and Session Management
-│   ├── 4.2 Guardrails for Safe Code Generation
-│   ├── 4.3 Logging, Observability, and Audit Trails
+├── Module 4: Stateful and Guardrailed Agents
+│   ├── Memory, context, and session management
+│   ├── Implementing guardrails for safe code generation
+│   └── Logging and observability
 │
-├── Module 5: Multi-Agent Workflows for Software Projects
-│   ├── 5.1 Supervisor/Worker and Peer-to-Peer Patterns
-│   ├── 5.2 Communication and Coordination
-│   ├── 5.3 Workflow Orchestration
-│   ├── 5.4 Backend-Specific Workflow Examples
+├── Module 5: Multi-Agent Workflows in Software Projects
+│   ├── Supervisor/worker agent patterns
+│   ├── Communication and coordination
+│   └── Workflow orchestration
 │
-├── Module 6: Retrieval-Augmented Generation (RAG) for Codebases
-│   ├── 6.1 Vector Databases for Code/Docs
-│   ├── 6.2 RAG Patterns and Pitfalls
-│   ├── 6.3 Governance, Citation, and Compliance
+├── Module 6: Agentic RAG for Codebases
+│   ├── Setting up vector databases for code
+│   ├── Retrieval-augmented generation for documentation and code
+│   └── Governance and citation enforcement
 │
 ├── Module 7: AI-Augmented Software Engineering
-│   ├── 7.1 Automated Code Reading
-│   ├── 7.2 Patch Proposal and Test Running
-│   ├── 7.3 Simulated PRs, Reviews, and Merges
-│   ├── 7.4 Best Practices for AI-in-the-Loop
+│   ├── Code reading, patch proposal, and test automation
+│   ├── Simulating pull requests and code reviews
+│   └── Best practices for AI-in-the-loop development
 │
-└── Module 8: Production Agentic Systems
-    ├── 8.1 Production Architecture
-    ├── 8.2 Observability and Evaluation
-    ├── 8.3 Responsible AI Operations
-    └── 8.4 Scaling Enterprise Agents
+└── Module 8: Productionizing Agentic Systems
+    ├── Observability, logging, and policy enforcement
+    ├── Error handling and scaling
+    └── Deployment strategies
 ```
