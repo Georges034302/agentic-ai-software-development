@@ -1,54 +1,53 @@
-# Lab 1: Agentic AI for Software Development — Build the Agent Loop
 
-> 📘 **Pairs with:** [Module 1 — Introduction to Agentic AI for Software Development](../modules/Module_1_Introduction_to_Agentic_AI_for_Software_Development.md). Read §1.1 (the agent loop) and §1.4 (concept → code map) before starting.
+# Lab 1: Set Up the Agentic Dev Environment — Agentic Loop Demo
+
+> **Pairs with:** [Module 1 — Set Up the Agentic Dev Environment](../modules/Module_1_Set_Up_the_Agentic_Dev_Environment.md). Read §1.1 (the agent loop), §1.4 (concept map), and §1.6 (environment setup) before starting.
 
 ## Objective
-Automate a real software-development task end-to-end using the **agentic loop** from Module 1 §1.1:
+
+Experience the agentic loop hands-on by automating a real software development task. This is a **learning scaffold**—not agent development. You will:
+
+- Implement a minimal **plan → act → observe → adapt** loop in Python (mirroring Module 1 §1.1)
+- Use real tools (`subprocess`, file I/O) to act on code and observe results
+- Map each Module 1 concept to a concrete line of code
 
 > **Goal:** *Add unit tests for an existing Python module, run them, and adapt on failure.*
 
-By the end of this lab you will have:
-- Implemented the **plan → act → observe → adapt** loop in Python.
-- Used a real **tool** (`subprocess` + file I/O) to act on the codebase and observe results.
-- Mapped every Module 1 concept to a concrete line of code.
+**This is a one-time demo to make agentic AI concrete. The rest of the course uses production agent tools.**
 
-### Concept → Code map (mirrors Module 1 §1.4)
+### Concept → Code Map (see Module 1 §1.4)
 
-| Module 1 concept | Where it lives in this lab |
+| Module 1 Concept | Where it lives in this lab |
 |---|---|
-| **Goal** | The string passed to `agentic_loop(...)` in Step 2. |
-| **Plan** | `plan()` returning ordered steps. |
-| **Act** | `act()` writing `test_app.py` and running `unittest`. |
-| **Observe** | Parsing `subprocess.run(...)` stdout for `OK` / `FAILED`. |
-| **Adapt** | `adapt()` + the `max_retries` stop condition. |
-| **Tool use** | File I/O and the shell via `subprocess`. |
-| **Guardrail** | `max_retries=3` bounds the loop. |
+| **Goal** | The string passed to `agentic_loop(...)` |
+| **Plan** | `plan()` function |
+| **Act** | `act()` function (writes test, runs tests) |
+| **Observe** | `observe()` function (parses results) |
+| **Adapt** | `adapt()` function, `max_retries` |
+| **Tool use** | File I/O, `subprocess` |
+| **Guardrail** | `max_retries=3` |
 
 ---
 
-## Step 1: The Task — Set Up the Python App to Test
+def add(a, b):
+def subtract(a, b):
 
-In this lab, your agent's goal is to add a unit test for an existing backend Python function. Create a working folder and add the following calculator app.
+## Step 1: Prepare the Python App
 
-**Create the folder and file:**
+Your "agent" will add a unit test for an existing backend Python function. Set up the code to be tested:
 
 ```bash
 mkdir backend_app
 cd backend_app
 ```
 
-**`backend_app/app.py`** — create this file with the following contents:
+Create `backend_app/app.py`:
 
 ```python
-# Simple backend Python app: Calculator
-
 def add(a, b):
-    """Return the sum of a and b."""
     return a + b
 
 
-def subtract(a, b):
-    """Return the difference of a and b."""
     return a - b
 
 if __name__ == "__main__":
@@ -56,40 +55,15 @@ if __name__ == "__main__":
     print("5 - 2 =", subtract(5, 2))
 ```
 
-**Verify it runs:**
+Test it:
 
 ```bash
 python app.py
-# Expected output:
 # 2 + 3 = 5
 # 5 - 2 = 3
 ```
 
-This is the code your agent will reason about in Step 2. The agent's job is to **generate, write, and run** a unit-test file for `add()` and `subtract()`.
-
-The target test file the agent should produce is `backend_app/test_app.py`:
-
-```python
-import unittest
-from app import add, subtract
-
-class TestCalculator(unittest.TestCase):
-    def test_add(self):
-        self.assertEqual(add(2, 3), 5)
-        self.assertEqual(add(-1, 1), 0)
-        self.assertEqual(add(0, 0), 0)
-
-    def test_subtract(self):
-        self.assertEqual(subtract(5, 2), 3)
-        self.assertEqual(subtract(0, 0), 0)
-        self.assertEqual(subtract(-1, -1), 0)
-
-if __name__ == "__main__":
-    unittest.main()
-```
-
-> Do **not** create `test_app.py` yourself — Step 2's agentic loop will write it for you.
-
+Your agentic loop will generate and run a test file for `add()` and `subtract()`.
 ---
 
 ## Step 2: Implement the Agentic Loop (Driving Step 1)
@@ -247,5 +221,5 @@ Answer briefly, citing Module 1 sections where relevant:
 
 ---
 
-**Proceed to [Lab 2](Lab_2_Prompt_Engineering_for_Software_Agents.md) when your loop runs to `Goal achieved!` and `test_app.py` exists.**
+**Proceed to [Lab 2](Lab_2_Drive_Agents_with_Prompts_and_Specs.md) when your loop runs to `Goal achieved!` and `test_app.py` exists.**
 
