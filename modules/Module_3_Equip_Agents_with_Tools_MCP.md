@@ -1,6 +1,6 @@
-# Module 3 — Connecting Agents to Developer Tools
+# Module 3 — Equip Agents with Tools (MCP)
 
-> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 3: Connecting Agents to Developer Tools](../labs/Lab_3_Connecting_Agents_to_Developer_Tools.md).
+> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 3: Equip Agents with Tools (MCP)](../labs/Lab_3_Equip_Agents_with_Tools_MCP.md).
 
 > **Module goal.** Learn how to connect AI agents to real developer tools (IDEs, CLIs, APIs, code repositories) and invoke them safely and effectively using the Model Context Protocol (MCP).
 
@@ -99,5 +99,5 @@ def invoke_tool(tool_name, *args, **kwargs):
 2. **MCP provides a safe, structured way to expose tools to agents.**
 3. **Tool registries and invocation patterns enable scalable, auditable automation.**
 
-> ➡️ **Next:** [Module 4 — Stateful and Guardrailed Agents](Module_4_Stateful_and_Guardrailed_Agents.md)
+> ➡️ **Next:** [Module 4 — Constrain Agents Safely](Module_4_Constrain_Agents_Safely.md)
 

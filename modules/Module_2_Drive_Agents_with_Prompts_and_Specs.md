@@ -1,6 +1,6 @@
-# Module 2 — Prompt Engineering for Software Agents
+# Module 2 — Drive Agents with Prompts & Specs
 
-> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 2: Prompt Engineering for Software Agents](../labs/Lab_2_Prompt_Engineering_for_Software_Agents.md).
+> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 2: Drive Agents with Prompts & Specs](../labs/Lab_2_Drive_Agents_with_Prompts_and_Specs.md).
 
 > **Module goal.** Learn how to design, test, and iterate prompts that enable AI agents to generate, review, and refactor code effectively and safely.
 
@@ -121,5 +121,5 @@ test_prompt(prompt, code, expected)
 2. **Prompt patterns should be tailored to your backend (Claude, Kiro, etc.).**
 3. **Testing and iteration are essential for reliable, safe agent behavior.**
 
-> ➡️ **Next:** [Module 3 — Connecting Agents to Developer Tools](Module_3_Connecting_Agents_to_Developer_Tools.md)
+> ➡️ **Next:** [Module 3 — Equip Agents with Tools (MCP)](Module_3_Equip_Agents_with_Tools_MCP.md)
 

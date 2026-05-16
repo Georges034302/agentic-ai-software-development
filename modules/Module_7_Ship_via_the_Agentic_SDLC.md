@@ -1,6 +1,6 @@
-# Module 7 — AI-Augmented Software Engineering
+# Module 7 — Ship via the Agentic SDLC
 
-> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 7: AI-Augmented Software Engineering](../labs/Lab_7_AI_Augmented_Software_Engineering.md).
+> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 7: Ship via the Agentic SDLC](../labs/Lab_7_Ship_via_the_Agentic_SDLC.md).
 
 > **Module goal.** Learn how to use agents for automated code reading, patch proposal, test automation, and to simulate PRs and reviews in the software development lifecycle.
 
@@ -98,5 +98,5 @@ else:
 2. **Simulated PRs and reviews enable safe, scalable code changes.**
 3. **AI-in-the-loop ensures quality, safety, and compliance.**
 
-> ➡️ **Next:** [Module 8 — Productionizing Agentic Systems](Module_8_Productionizing_Agentic_Systems.md)
+> ➡️ **Next:** [Module 8 — Operate Agents in Production](Module_8_Operate_Agents_in_Production.md)
 

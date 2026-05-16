@@ -1,10 +1,23 @@
-# Course Index — Agentic AI Software Development
+# Course Index — Advanced Software Development with Agentic AI
 
-> **Agentic AI for Software Engineering**
+> **Scope.** This course teaches modern software engineering **with agentic AI from day one** — using autonomous coding agents (GitHub Copilot Agent Mode, Copilot Coding Agent, Claude Code) inside **GitHub Codespaces**, with **AWS Kiro** introduced as a comparative spec-driven stack.
 >
-> This course is focused on agentic AI for software development—designing, building, and deploying agentic systems for real-world engineering workflows. All modules and docs are about agentic architectures, not general software development or unrelated AI topics.
+> **Objective.** Ship a real feature as a merged pull request using agents end-to-end (issue → spec → plan → code → tests → review → merge).
+>
+> **Out of scope.** Building agent frameworks from scratch (LangGraph/CrewAI). The course is about *using and orchestrating* production agents.
 
-Welcome to the course index. Each module is maintained as its own file in the [`modules/`](../modules) directory. Use the table of contents below to navigate.
+Welcome to the course index. Each module is maintained as its own file in the [`modules/`](../modules) directory; matching hands-on labs are in [`labs/`](../labs). Use the table of contents below to navigate.
+
+---
+
+## The Stack at a Glance
+
+| Stack | Role | First appears |
+|---|---|---|
+| **GitHub Codespaces + Copilot** (Chat, Agent Mode, Coding Agent, Code Review) | Primary working environment | Lab 1 |
+| **Claude Code** (CLI + VS Code extension, runs inside the Codespace) | Long-horizon autonomy, headless CI | Optional in Lab 1; **mandatory from Module 3** |
+| **MCP (Model Context Protocol)** | Shared tool layer | Module 3 |
+| **AWS Kiro** (spec-driven; Hooks, Steering) | Comparative paradigm | Module 5 |
 
 ---
 
@@ -12,23 +25,23 @@ Welcome to the course index. Each module is maintained as its own file in the [`
 
 
 ### Modules
-- [Module 1: Introduction to Agentic AI for Software Development](../modules/Module_1_Introduction_to_Agentic_AI_for_Software_Development.md)
-- [Module 2: Prompt Engineering for Software Agents](../modules/Module_2_Prompt_Engineering_for_Software_Agents.md)
-- [Module 3: Connecting Agents to Developer Tools](../modules/Module_3_Connecting_Agents_to_Developer_Tools.md)
-- [Module 4: Stateful and Guardrailed Agents](../modules/Module_4_Stateful_and_Guardrailed_Agents.md)
-- [Module 5: Multi-Agent Workflows in Software Projects](../modules/Module_5_Multi_Agent_Workflows_in_Software_Projects.md)
-- [Module 6: Agentic RAG for Codebases](../modules/Module_6_Agentic_RAG_for_Codebases.md)
-- [Module 7: AI-Augmented Software Engineering](../modules/Module_7_AI_Augmented_Software_Engineering.md)
-- [Module 8: Productionizing Agentic Systems](../modules/Module_8_Productionizing_Agentic_Systems.md)
+- [Module 1: Set Up the Agentic Dev Environment](../modules/Module_1_Set_Up_the_Agentic_Dev_Environment.md)
+- [Module 2: Drive Agents with Prompts & Specs](../modules/Module_2_Drive_Agents_with_Prompts_and_Specs.md)
+- [Module 3: Equip Agents with Tools (MCP)](../modules/Module_3_Equip_Agents_with_Tools_MCP.md)
+- [Module 4: Constrain Agents Safely (Memory & Permissions)](../modules/Module_4_Constrain_Agents_Safely.md)
+- [Module 5: Build Features with Agents (Full-Stack)](../modules/Module_5_Build_Features_with_Agents.md)
+- [Module 6: Test with Agents](../modules/Module_6_Test_with_Agents.md)
+- [Module 7: Ship via the Agentic SDLC](../modules/Module_7_Ship_via_the_Agentic_SDLC.md)
+- [Module 8: Operate Agents in Production](../modules/Module_8_Operate_Agents_in_Production.md)
 
 ---
 
 ### Labs
-- [Lab 1: Introduction to Agentic AI for Software Development](../labs/Lab_1_Introduction_to_Agentic_AI_for_Software_Development.md)
-- [Lab 2: Prompt Engineering for Software Agents](../labs/Lab_2_Prompt_Engineering_for_Software_Agents.md)
-- [Lab 3: Connecting Agents to Developer Tools](../labs/Lab_3_Connecting_Agents_to_Developer_Tools.md)
-- [Lab 4: Stateful and Guardrailed Agents](../labs/Lab_4_Stateful_and_Guardrailed_Agents.md)
-- [Lab 5: Multi-Agent Workflows in Software Projects](../labs/Lab_5_Multi_Agent_Workflows_in_Software_Projects.md)
-- [Lab 6: Agentic RAG for Codebases](../labs/Lab_6_Agentic_RAG_for_Codebases.md)
-- [Lab 7: AI-Augmented Software Engineering](../labs/Lab_7_AI_Augmented_Software_Engineering.md)
-- [Lab 8: Productionizing Agentic Systems](../labs/Lab_8_Productionizing_Agentic_Systems.md)
+- [Lab 1: Set Up the Agentic Dev Environment](../labs/Lab_1_Set_Up_the_Agentic_Dev_Environment.md)
+- [Lab 2: Drive Agents with Prompts & Specs](../labs/Lab_2_Drive_Agents_with_Prompts_and_Specs.md)
+- [Lab 3: Equip Agents with Tools (MCP)](../labs/Lab_3_Equip_Agents_with_Tools_MCP.md)
+- [Lab 4: Constrain Agents Safely](../labs/Lab_4_Constrain_Agents_Safely.md)
+- [Lab 5: Build a Full-Stack Feature with Agents](../labs/Lab_5_Build_a_Full_Stack_Feature_with_Agents.md)
+- [Lab 6: Test with Agents](../labs/Lab_6_Test_with_Agents.md)
+- [Lab 7: Ship via the Agentic SDLC](../labs/Lab_7_Ship_via_the_Agentic_SDLC.md)
+- [Lab 8: Operate Agents in Production](../labs/Lab_8_Operate_Agents_in_Production.md)

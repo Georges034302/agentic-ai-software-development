@@ -1,6 +1,6 @@
-# Module 5 — Multi-Agent Workflows in Software Projects
+# Module 5 — Build Features with Agents
 
-> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 5: Multi-Agent Workflows in Software Projects](../labs/Lab_5_Multi_Agent_Workflows_in_Software_Projects.md).
+> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 5: Build Features with Agents](../labs/Lab_5_Build_a_Full_Stack_Feature_with_Agents.md).
 
 > **Module goal.** Learn how to design, implement, and orchestrate multi-agent workflows for complex software engineering tasks.
 
@@ -123,5 +123,5 @@ print(pipeline([step1, step2], "start"))
 2. **Communication and orchestration are key to complex automation.**
 3. **Choose patterns and backends that fit your engineering needs.**
 
-> ➡️ **Next:** [Module 6 — Agentic RAG for Codebases](Module_6_Agentic_RAG_for_Codebases.md)
+> ➡️ **Next:** [Module 6 — Test with Agents](Module_6_Test_with_Agents.md)
 

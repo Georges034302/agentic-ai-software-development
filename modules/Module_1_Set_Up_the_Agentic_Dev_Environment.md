@@ -1,17 +1,60 @@
-# Module 1 — Introduction to Agentic AI for Software Development
+# Module 1 — Set Up the Agentic Dev Environment
 
-> 💡 **Hands-on Lab:** This module is paired with [Lab 1: Agentic AI for Software Development](../labs/Lab_1_Introduction_to_Agentic_AI_for_Software_Development.md), where you build a working *plan → act → observe → adapt* coding agent that writes and runs unit tests for a Python module.
+> 💡 **Hands-on Lab:** This module is paired with [Lab 1: Agentic AI for Software Development](../labs/Lab_1_Set_Up_the_Agentic_Dev_Environment.md), where you build a working *plan → act → observe → adapt* coding agent that writes and runs unit tests for a Python module.
 
 > **Module goal.** Build a precise mental model of what agentic AI *is* in the context of **software development**, what makes it different from earlier AI coding tools, and where it creates measurable value across the engineering lifecycle.
 
-> **Course focus.** This course is about **engineering agentic AI systems for software development** — autonomous, goal-driven agents that read code, edit code, run tools (tests, linters, build systems, VCS), observe results, and adapt. It is not about general LLM usage, image generation, or non-engineering chat assistants.
+> **Course focus.** This course is about **using agentic AI to build software** — you will learn to use autonomous, goal-driven agents (not build them) to read code, edit code, run tools (tests, linters, build systems, VCS), observe results, and adapt. It is not about building agent frameworks, general LLM usage, image generation, or non-engineering chat assistants.
+
 
 ## Table of Contents
 
 - [1.1 What is Agentic AI?](#11-what-is-agentic-ai)
-- [1.2 Why Agentic AI for Software Engineering?](#12-why-agentic-ai-for-software-engineering)
-- [1.3 Key Concepts and Terminology](#13-key-concepts-and-terminology)
-- [1.4 From Module to Lab — Your First Coding Agent](#14-from-module-to-lab--your-first-coding-agent)
+- [1.2 The Agentic AI Stacks: Codespaces, Copilot, Claude Code, Kiro](#12-the-agentic-ai-stacks-codespaces-copilot-claude-code-kiro)
+- [1.3 Why Agentic AI for Software Engineering?](#13-why-agentic-ai-for-software-engineering)
+- [1.4 Key Concepts and Terminology](#14-key-concepts-and-terminology)
+- [1.5 From Module to Lab — Your First Coding Agent](#15-from-module-to-lab--your-first-coding-agent)
+- [1.6 Environment Setup: Codespaces, Copilot, Claude Code](#16-environment-setup-codespaces-copilot-claude-code)
+#
+## 1.2 The Agentic AI Stacks: Codespaces, Copilot, Claude Code, Kiro
+
+This course is hands-on with **production agent stacks**. You will use:
+
+- **GitHub Codespaces**: Your cloud-based VS Code environment. Pre-configured for agentic workflows.
+- **GitHub Copilot** (Chat, Agent Mode, Coding Agent, Code Review): The primary agent stack. Ships code, opens PRs, runs in-IDE and in CI.
+- **Claude Code** (Anthropic CLI + VS Code extension): Optional in Lab 1, required from Module 3. Excels at long-horizon planning and headless CI.
+- **AWS Kiro**: Comparative, spec-driven IDE (Specs, Hooks, Steering). Used for conceptual contrast only (not a main path).
+
+You will NOT build agent frameworks or custom runtimes. The focus is on orchestrating and using these tools to ship real software.
+
+| Stack | Role | When you use it |
+|---|---|---|
+| Codespaces + Copilot | Main dev environment, agentic workflows | Lab 1 onward |
+| Claude Code | Long-horizon, headless, sub-agents | Optional Lab 1, required Module 3+ |
+| AWS Kiro | Comparative paradigm | Concepts only, Module 5 |
+
+All stacks can use Anthropic Claude models. Copilot and Claude Code can coexist in the same Codespace.
+#
+## 1.6 Environment Setup: Codespaces, Copilot, Claude Code
+
+Follow these steps to get your agentic development environment ready:
+
+1. **Open this repo in a GitHub Codespace**
+        - In GitHub, click **Code → Codespaces → Create codespace**.
+2. **Sign in to GitHub Copilot**
+        - Copilot is free for verified students; Pro is $10/mo.
+        - Enable Copilot Chat and Agent Mode in VS Code.
+3. **(Optional, but required from Module 3) Install Claude Code**
+        - In the Codespace terminal, run:
+          ```bash
+          npm install -g @anthropic-ai/claude-code
+          ```
+        - Install the Claude Code VS Code extension if you want the GUI.
+4. **Verify your setup**
+        - Open Copilot Chat and Claude Code (if installed) in VS Code.
+        - Run a simple agentic task (e.g., ask Copilot Agent Mode to create a file).
+
+You are now ready to start Lab 1: ship your first agentic PR!
 
 ---
 
@@ -77,7 +120,7 @@ A working agent has five engineering surfaces — every later module in this cou
 4. **Adapt** — on `FAILED`, regenerate assertions or fix imports; retry up to N times.
 5. **Outcome** — `test_app.py` exists and `unittest` exits `OK`.
 
-This is exactly the agent you implement in [Lab 1](../labs/Lab_1_Introduction_to_Agentic_AI_for_Software_Development.md).
+This is exactly the agent you implement in [Lab 1](../labs/Lab_1_Set_Up_the_Agentic_Dev_Environment.md).
 
 ---
 
@@ -136,7 +179,7 @@ The agent is doing engineering work end-to-end, with verifiable artifacts (PR UR
 
 ## 1.4 From Module to Lab — Your First Coding Agent
 
-In [Lab 1](../labs/Lab_1_Introduction_to_Agentic_AI_for_Software_Development.md) you implement every concept from §1.1 in ~80 lines of Python. Use this map as you work through it:
+In [Lab 1](../labs/Lab_1_Set_Up_the_Agentic_Dev_Environment.md) you implement every concept from §1.1 in ~80 lines of Python. Use this map as you work through it:
 
 | Module 1 concept | Lab 1 implementation |
 |---|---|
@@ -160,5 +203,5 @@ In [Lab 1](../labs/Lab_1_Introduction_to_Agentic_AI_for_Software_Development.md)
 5. **Start small, then add depth.** Lab 1 builds the loop; later modules add prompts, tools, memory, guardrails, multi-agent coordination, RAG, and production concerns.
 
 > ➡️ **Next:**
-> - 🧪 Do [Lab 1 — Build the agentic loop](../labs/Lab_1_Introduction_to_Agentic_AI_for_Software_Development.md)
-> - 📘 Then read [Module 2 — Prompt Engineering for Software Agents](Module_2_Prompt_Engineering_for_Software_Agents.md)
+> - 🧪 Do [Lab 1 — Set Up the Agentic Dev Environment](../labs/Lab_1_Set_Up_the_Agentic_Dev_Environment.md)
+> - 📘 Then read [Module 2 — Drive Agents with Prompts & Specs](Module_2_Drive_Agents_with_Prompts_and_Specs.md)

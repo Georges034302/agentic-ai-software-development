@@ -1,6 +1,6 @@
-# Module 8 — Productionizing Agentic Systems
+# Module 8 — Operate Agents in Production
 
-> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 8: Productionizing Agentic Systems](../labs/Lab_8_Productionizing_Agentic_Systems.md).
+> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 8: Operate Agents in Production](../labs/Lab_8_Operate_Agents_in_Production.md).
 
 > **Module goal.** Learn how to deploy, monitor, scale, and govern agentic AI systems in production environments, with a focus on reliability, observability, and compliance.
 

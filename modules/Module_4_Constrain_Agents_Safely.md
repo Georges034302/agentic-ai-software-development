@@ -1,6 +1,6 @@
-# Module 4 — Stateful and Guardrailed Agents
+# Module 4 — Constrain Agents Safely
 
-> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 4: Stateful and Guardrailed Agents](../labs/Lab_4_Stateful_and_Guardrailed_Agents.md).
+> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 4: Constrain Agents Safely](../labs/Lab_4_Constrain_Agents_Safely.md).
 
 > **Module goal.** Learn how to give agents memory, enforce safety and compliance with guardrails, and implement logging and observability for real-world use.
 
@@ -105,5 +105,5 @@ agent_action("Refactored function X")
 2. **Guardrails are essential for safety, compliance, and reliability.**
 3. **Logging and observability make agents auditable and production-ready.**
 
-> ➡️ **Next:** [Module 5 — Multi-Agent Workflows in Software Projects](Module_5_Multi_Agent_Workflows_in_Software_Projects.md)
+> ➡️ **Next:** [Module 5 — Build Features with Agents](Module_5_Build_Features_with_Agents.md)
 

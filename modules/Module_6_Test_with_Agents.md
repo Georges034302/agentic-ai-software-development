@@ -1,6 +1,6 @@
-# Module 6 — Agentic RAG for Codebases
+# Module 6 — Test with Agents
 
-> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 6: Agentic RAG for Codebases](../labs/Lab_6_Agentic_RAG_for_Codebases.md).
+> 💡 **Hands-on Labs:** For practical exercises that complement this module, see the [labs/](../labs) directory or start with [Lab 6: Test with Agents](../labs/Lab_6_Test_with_Agents.md).
 
 > **Module goal.** Learn how to combine retrieval (search) with generation (LLMs) to build agents that can answer questions and generate code using up-to-date, relevant context from codebases and docs.
 
@@ -99,5 +99,5 @@ enforce_citation(answer, snippets)
 2. **Vector databases make code and doc search fast and scalable.**
 3. **Governance and citation are essential for trust and compliance.**
 
-> ➡️ **Next:** [Module 7 — AI-Augmented Software Engineering](Module_7_AI_Augmented_Software_Engineering.md)
+> ➡️ **Next:** [Module 7 — Ship via the Agentic SDLC](Module_7_Ship_via_the_Agentic_SDLC.md)
 
